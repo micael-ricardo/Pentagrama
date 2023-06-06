@@ -9,4 +9,8 @@ class Cidade extends Model
 {
     use HasFactory;
 
+    public function bairros()
+    {
+        return $this->hasMany(Bairro::class);
+    }
 }

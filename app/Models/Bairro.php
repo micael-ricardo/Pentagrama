@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Bairro extends Model
 {
     use HasFactory;
+
+    public function cidade()
+    {
+        return $this->belongsTo(Cidade::class);
+    }
 }
