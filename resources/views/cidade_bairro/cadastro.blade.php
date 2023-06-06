@@ -1,27 +1,61 @@
 @extends('template/layout')
 @section('title', 'Cadastro de Localidades')
 @section('conteudo')
-    <h4 class="display-6">Cadastro de Localidades</h4>
 
     <form action="/cadastrar" method="POST">
-        <h2>Cadastro de Cidade</h2>
-        <label for="cidade_nome">Nome da Cidade:</label>
-        <input type="text" id="cidade_nome" name="cidade_nome">
-        <label for="cidade_estado">Estado:</label>
-        <label for="cidade_data_fundacao">Data de Fundação:</label>
-        <input type="date" id="cidade_data_fundacao" name="cidade_data_fundacao">
+        <h4 class="display-6">Cadastrar Cidade</h4>
 
+        <div class="row mt-4">
+            <div class="form-group col-md-4">
+                <label for="nome">Cidade:</label>
+                <select class="form-control select2" name="nome" id="nome" required>
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="estado">Estado:</label>
+                <select class="form-control select2" name="estado" id="estado" required>
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="data_fundacao">Data:</label>
+                <input type="date" class="form-control" name="data_fundacao" id="data_fundacao" required>
+            </div>
+        </div>
 
+        <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label for="cadastrarbairro">Deseja cadastrar o Bairro?</label>
+                <input type="checkbox" value="1" onclick="return($('#CadastroBairro').toggle('fade'))"
+                    name="cadastrarbairro" id="cadastrarbairro">
+            </div>
+        </div>
+        <div id="CadastroBairro" class="col-md-12" style="display: none;">
 
-        {{-- <h2>Cadastro de Bairro</h2>
-    <label for="bairro_cidade">Cidade:</label>
-    <select id="bairro_cidade" name="bairro_cidade">
-        <!-- Opções de cidades aqui -->
-    </select>
-    
-    <label for="bairro_nome">Nome do Bairro:</label>
-    <input type="text" id="bairro_nome" name="bairro_nome"> --}}
+            <h4 class="display-6">Cadastrar Bairro</h4>
 
-        <input type="submit" value="Cadastrar">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="nome_bairro">Bairro:</label>
+                    <select class="form-control select2" name="nome_bairro" id="nome_bairro" required>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="cidade_bairro">cidade:</label>
+                    <select class="form-control select2" name="cidade_bairro" id="cidade_bairro" required>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mt-5">
+            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar </button>
+            <a class="btn btn-danger"><i class="fa fa-times"></i>
+                Cancelar</a>
+        </div>
+        <script src="js/cidade_bairro.js"></script>
+
     </form>
 @endsection
