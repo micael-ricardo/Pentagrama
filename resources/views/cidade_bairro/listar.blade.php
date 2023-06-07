@@ -54,7 +54,7 @@
                 <th>Nome</th>
             </tr>
         </thead>
-        <tbody></tbody> <!-- Adicione esta linha -->
+        <tbody></tbody>
     </table>
 
     <script src="{{ asset('js/DataTableLocal.js') }}"></script>

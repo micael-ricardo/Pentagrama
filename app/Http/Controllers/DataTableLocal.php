@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Yajra\DataTables\Facades\DataTables;
 
 use Illuminate\Http\Request;
-use App\Models\Bairro;
+use App\Models\CidadeBairroView;
 
 
 class DataTableLocal extends Controller
@@ -13,7 +13,7 @@ class DataTableLocal extends Controller
     public function datatable(Request $request)
     {
 
-        $query = Bairro::query();
+        $query = CidadeBairroView::query();
 
         // Filtros
 
