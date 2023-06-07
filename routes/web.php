@@ -13,25 +13,24 @@ Route::get('/', function () {
 });
 
 
-//  cadastra Usuario Candidato
+//  cadastra Usuario
 Route::post('/usuarios', [UsuarioController::class, 'store'])->name('usuarios.store');
-Route::resource('usuario', UsuarioController::class);
 Route::get('/cadastro', [UsuarioController::class, 'create'])->name('login.cadastro');
 
-
-Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
-
-// logout
 Route::view('/login', 'login.login')->name('login');
+Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
+// logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::resource('/cidades', CidadeController::class, ['names' => 'cidades']);
 
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/datatable', [DataTableLocal::class, 'datatable'])->name('datatable');
     // Cadastro Cidade Bairro
- 
+    Route::resource('/cidades', CidadeController::class, ['names' => 'cidades']);
     Route::post('/cadastrar', [CidadeController::class, 'cadastrar']);
+
+    Route::get('/cadastro-cidades', [CidadeController::class, 'create'])->name('cidades.cadastro');
+
     Route::post('/cadastrar/{idCidade}', [BairroController::class, 'cadastrar'])->name('cadastrar.bairro');
 });
 

@@ -15,7 +15,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credenciais, $request->remember)) {
             $request->session()->regenerate();
-            return redirect()->route('cidades');
+            return redirect()->route('cidades.cadastro');
         } else {
             return back()->withErrors(['login.invalid' => 'Credenciais inválidas. Por favor, tente novamente.'])->withInput($request->only('email'));
         }

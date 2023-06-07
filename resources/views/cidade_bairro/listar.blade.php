@@ -1,5 +1,5 @@
 @extends('template/layout')
-@section('title', 'Candidaturas')
+@section('title', 'Localidades')
 @section('conteudo')
 
     <h5>Localidades</h5>
