@@ -3,20 +3,19 @@
 @section('conteudo')
 
     <form action="/cadastrar" method="POST">
+        @csrf
         <h4 class="display-6">Cadastrar Cidade</h4>
 
         <div class="row mt-4">
             <div class="form-group col-md-4">
                 <label for="nome">Cidade:</label>
-                <select class="form-control select2" name="nome" id="nome" required>
-                    <option value="">Selecione</option>
-                </select>
+                <select class="form-control select2" name="nome" id="nome" required></select>
             </div>
+            {{-- Enviar Nome pelo Campo Hiden pois no Id está inserido o id da cidade --}}
+            <input type="hidden" name="nome_cidade" id="nome_cidade">
             <div class="form-group col-md-4">
                 <label for="estado">Estado:</label>
-                <select class="form-control select2" name="estado" id="estado" required>
-                    <option value="">Selecione</option>
-                </select>
+                <input type="text" class="form-control" name="estado" id="estado" readonly required>
             </div>
             <div class="form-group col-md-4">
                 <label for="data_fundacao">Data:</label>
@@ -38,14 +37,12 @@
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="nome_bairro">Bairro:</label>
-                    <select class="form-control select2" name="nome_bairro" id="nome_bairro" required>
-                        <option value="">Selecione</option>
+                    <select class="form-control" name="nome_bairro" id="nome_bairro" required>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="cidade_bairro">cidade:</label>
-                    <select class="form-control select2" name="cidade_bairro" id="cidade_bairro" required>
-                        <option value="">Selecione</option>
+                    <select class="form-control" name="cidade_bairro" id="cidade_bairro" required>
                     </select>
                 </div>
             </div>

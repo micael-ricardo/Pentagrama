@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CidadeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('cidade_bairro.cadastro');
 });
+
+Route::post('/cidades/data-de-fundacao', 'CidadeController@getDataDeFundacao')->name('cidades.dataDeFundacao');
+Route::post('/cadastrar', [CidadeController::class, 'cadastrar']);
