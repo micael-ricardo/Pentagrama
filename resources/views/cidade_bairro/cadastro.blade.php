@@ -31,7 +31,7 @@
                     name="cadastrarbairro" id="cadastrarbairro">
             </div>
         </div>
-        
+
         <div id="CadastroBairro" class="col-md-12" style="display: none;">
             <h4 class="display-6">Cadastrar Bairro</h4>
             <div class="row">
@@ -45,8 +45,7 @@
 
         <div class="col-md-12 mt-5">
             <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar </button>
-            <a class="btn btn-danger"><i class="fa fa-times"></i>
-                Cancelar</a>
+            <a class="btn btn-danger"><i class="fa fa-times"></i>Cancelar</a>
         </div>
         <script src="js/cidade_bairro.js"></script>
 

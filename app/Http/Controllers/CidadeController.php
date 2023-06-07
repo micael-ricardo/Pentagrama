@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\BairroController;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
 use App\Models\Cidade;
+
 
 class CidadeController extends Controller
 {
@@ -21,15 +23,19 @@ class CidadeController extends Controller
         //
     }
 
-    public function cadastrar(Request $request)
+    public function cadastrar(Request $request, BairroController $bairroController)
     {
-        cidade::create([
-            'nome' => $request->nome_cidade,
-            'estado' => $request->estado,
-            'data_fundacao' => $request->data_fundacao,
-        ]);
+        DB::transaction(function () use ($request, $bairroController) {
+            $cidade = cidade::create([
+                'nome' => $request->nome_cidade,
+                'estado' => $request->estado,
+                'data_fundacao' => $request->data_fundacao,
+            ]);
 
-        // return redirect()->route('cidade_bairro.cadastro')->with('success', 'Registro inserido com sucesso!');
+            if ($request->has('cadastrarbairro')) {
+                $bairroController->cadastrar($request, $cidade->id);
+            }
+        });
     }
 
     /**
@@ -67,7 +73,7 @@ class CidadeController extends Controller
 
     // Quando finalizar o basico tentar puxar a data de fundação das cidades de alguma forma
 
-     // private function getFundacao($cidade)
+    // private function getFundacao($cidade)
     // {
     //     $sparqlQuery = "
     //         SELECT ?cidade ?cidadeLabel ?dataDeFundacao WHERE {

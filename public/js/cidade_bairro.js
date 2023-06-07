@@ -74,7 +74,7 @@ $(document).ready(function () {
                         $.each(data, function (index, item) {
                             if (item.address.suburb) {
                                 results.push({
-                                    id: item.place_id,
+                                    id: item.address.suburb,
                                     text: item.address.suburb
                                 });
                             }

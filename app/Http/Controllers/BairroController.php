@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Bairro;
+
 
 class BairroController extends Controller
 {
@@ -22,13 +24,14 @@ class BairroController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function cadastrar(Request $request, $idCidade)
     {
-        //
+        bairro::create([
+            'nome' => $request->nome_bairro,
+            'cidade_id' => $idCidade,
+        ]);
     }
+
 
     /**
      * Display the specified resource.

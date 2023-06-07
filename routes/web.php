@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CidadeController;
+use App\Http\Controllers\BairroController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,4 @@ Route::get('/', function () {
 // Route::post('/cidades/data-de-fundacao', [CidadeController::class, 'getDataDeFundacao'])->name('cidades.dataDeFundacao');
 
 Route::post('/cadastrar', [CidadeController::class, 'cadastrar']);
+Route::post('/cadastrar/{idCidade}', [BairroController::class, 'cadastrar'])->name('cadastrar.bairro');
