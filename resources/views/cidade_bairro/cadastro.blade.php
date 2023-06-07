@@ -43,8 +43,8 @@
         </div>
 
         <div class="col-md-12 mt-5">
-            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar </button>
-            <a   href="{{ route('cidades.index') }}"  class="btn btn-danger"><i class="fa fa-times"></i>Cancelar</a>
+            <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Salvar </button>
+            <a   href="{{ route('cidades.index') }}"  class="btn btn-danger"><i class="bi bi-trash"></i>Cancelar</a>
         </div>
    
         <script src="{{ asset('js/cidade_bairro.js') }}"></script>
