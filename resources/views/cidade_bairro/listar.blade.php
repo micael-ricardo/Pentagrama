@@ -15,43 +15,40 @@
         </div>
     </div>
     <!--  filtros -->
-    <div class="panel panel-inverse" id="filtro" style=" display: none;">
+    <div class="panel panel-inverse mb-3" id="filtro" style=" display: none;">
         <div class="row">
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-2">
                 <label>Data Início:</label>
                 <input type="date" class="form-control" name="data_inicio" id="data_inicio" />
             </div>
 
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-2">
                 <label>Data Fim:</label>
                 <input type="date" class="form-control" name="data_fim" id="data_fim" />
             </div>
-
             <div class="form-group col-sm-4">
-                <label>Nome:</label>
+                <label>Estado:</label>
+                <input type="text" class="form-control" name="estado" id="estado" />
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Cidade:</label>
                 <input type="text" class="form-control" name="nome" id="nome" />
             </div>
             <div class="form-group col-sm-4">
-                <label>Email:</label>
-                <input type="text" class="form-control" name="email" id="email" />
+                <label>Bairro:</label>
+                <input type="text" class="form-control" name="bairro_nome" id="bairro_nome" />
             </div>
-            <div class="form-group col-sm-4">
-                <label>Telefone:</label>
-                <input type="tel" class="form-control" name="telefone" id="telefone" />
-            </div>
-            <div class="form-group col-sm-4">
-                <label>Currículo:</label>
-                <input type="text" class="form-control" name="curriculo" id="curriculo" />
-            </div>
-
         </div>
     </div>
 
 
-    <table id="datatable">
+    <table id="datatable" class="table table-striped table-bordered w-100">
         <thead>
             <tr>
-                <th>Nome</th>
+                <th>Estado</th>
+                <th>Cidade</th>
+                <th>Cidade</th>
+                <th>Cidade</th>
             </tr>
         </thead>
         <tbody></tbody>

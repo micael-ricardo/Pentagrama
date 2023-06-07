@@ -1,9 +1,37 @@
 $(document).ready(function () {
     var columns = [
         {
-            data: 'nome',
-            title: 'Nome',
+            data: 'estado',
+            title: 'Estado',
             width: "250px",
+        },
+        {
+            data: 'nome',
+            title: 'Cidade',
+            width: "250px",
+        },
+        {
+            data: 'bairro_nome',
+            title: 'Bairro',
+            width: "250px",
+            render: function (data, type, row) {
+                if (data) {
+                    return data;
+                } else {
+                    return '-';
+                }
+            },
+            className: 'text-center'
+        },
+        {
+            data: 'data_fundacao',
+            title: 'Data Fundação',
+            width: "250px",
+            render: function (data, type, row) {
+                var dataFormatada = moment(data).format('DD/MM/YYYY');
+                return dataFormatada;
+            },
+            className: 'text-center'
         },
     ]
 
@@ -16,7 +44,11 @@ $(document).ready(function () {
             method: 'GET',
             // filtro
             data: function (d) {
+                d.data_inicio = $('#data_inicio').val(); 
+                d.data_fim = $('#data_fim').val(); 
+                d.estado = $('#estado').val();
                 d.nome = $('#nome').val();
+                d.bairro_nome = $('#bairro_nome').val();
             }
         },
         columns: columns,
@@ -48,6 +80,6 @@ $(document).ready(function () {
 
 // recarrega tabela com  valor do filtrado
 
-$('#nome').on('change', function () {
+$('#data_inicio,#data_fim,#estado,#nome,#bairro_nome').on('change', function () {
     $('#datatable').DataTable().ajax.reload(); 
 });
