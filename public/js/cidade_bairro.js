@@ -88,37 +88,3 @@ $(document).ready(function () {
         });
     });
 });
-
-
-
-
-// Tentar puxar a data da fundação da cidade de alguma forma
-
-// .on('select2:select', function(event) {
-//     var cidade = event.params.data.text.split(' - ')[0];
-
-//     $.ajax({
-//         url: '/cidades/data-de-fundacao',
-//         method: 'POST',
-//         data: {
-//             cidade: cidade,
-//             _token: $('meta[name="csrf-token"]').attr('content')
-//         },
-//         success: function(response) {
-//             var data_fundacao = response.dataDeFundacao;
-//             var estado = event.params.data.text.split(' - ')[1];
-
-//             if (data_fundacao) {
-//                 $('#data_fundacao').val(data_fundacao);
-//             } else {
-//                 $('#data_fundacao').val('');
-//                 alert('Não foi possível encontrar a data de fundação de ' + cidade + '.');
-//             }
-
-//             $('#estado').val(estado);
-//         },
-//         error: function() {
-//             alert('Ocorreu um erro ao buscar a data de fundação. Por favor, tente novamente.');
-//         }
-//     });
-// });
