@@ -35,5 +35,3 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cadastrar/{idCidade}', [BairroController::class, 'cadastrar'])->name('cadastrar.bairro');
 });
 
-// Se tiver tempo  inserir a data altomaticamente
-// Route::post('/cidades/data-de-fundacao', [CidadeController::class, 'getDataDeFundacao'])->name('cidades.dataDeFundacao');
