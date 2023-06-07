@@ -10,6 +10,12 @@ use App\Models\CidadeBairroView;
 
 class DataTableLocal extends Controller
 {
+
+    public function index()
+    {
+        return view('cidade_bairro.listar');
+    }
+
     public function datatable(Request $request)
     {
 
