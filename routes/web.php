@@ -16,11 +16,14 @@ use App\Http\Controllers\BairroController;
 |
 */
 
-Route::get('/', function () {
-    return view('cidade_bairro.cadastro');
-});
+// Route::get('/', function () {
+//     return view('cidade_bairro.cadastro');
+// });
 // Se tiver tempo vou tentar de tudo para inserir a data altomaticamente
 // Route::post('/cidades/data-de-fundacao', [CidadeController::class, 'getDataDeFundacao'])->name('cidades.dataDeFundacao');
 
+Route::resource('/cidades', CidadeController::class, ['names' => 'cidades']);
+
 Route::post('/cadastrar', [CidadeController::class, 'cadastrar']);
 Route::post('/cadastrar/{idCidade}', [BairroController::class, 'cadastrar'])->name('cadastrar.bairro');
+

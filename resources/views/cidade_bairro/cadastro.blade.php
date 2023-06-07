@@ -1,7 +1,6 @@
 @extends('template/layout')
 @section('title', 'Cadastro de Localidades')
 @section('conteudo')
-
     <form action="/cadastrar" method="POST">
         @csrf
         <h4 class="display-6">Cadastrar Cidade</h4>
@@ -45,9 +44,9 @@
 
         <div class="col-md-12 mt-5">
             <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar </button>
-            <a class="btn btn-danger"><i class="fa fa-times"></i>Cancelar</a>
+            <a   href="{{ route('cidades.index') }}"  class="btn btn-danger"><i class="fa fa-times"></i>Cancelar</a>
         </div>
-        <script src="js/cidade_bairro.js"></script>
-
+   
+        <script src="{{ asset('js/cidade_bairro.js') }}"></script>
     </form>
 @endsection

@@ -5,7 +5,7 @@
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-white" 
                     id="menu">
                         <li>
-                            <a  href="#" class="nav-link px-0 align-middle">
+                            <a  href="{{ route('cidades.index') }}" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi bi-map"></i><span class="ms-1  d-sm-inline">Cadastro de Localidades</span></a>
                         </li>
                 </ul>

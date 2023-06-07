@@ -12,15 +12,13 @@ class CidadeController extends Controller
 {
     public function index()
     {
-        //
+        return view('cidade_bairro.listar');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('cidade_bairro.cadastro');
+
     }
 
     public function cadastrar(Request $request, BairroController $bairroController)
@@ -36,6 +34,8 @@ class CidadeController extends Controller
                 $bairroController->cadastrar($request, $cidade->id);
             }
         });
+
+        return redirect()->route('cidades.index')->with('success', 'Registro inserido com sucesso!');
     }
 
     /**

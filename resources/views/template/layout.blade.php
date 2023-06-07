@@ -25,7 +25,7 @@
     {{-- Chart --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {{-- Estilo do sistema --}}
-    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="{{ asset('css/geral.css') }}">
 
 </head>
 
