@@ -6,7 +6,7 @@
                     id="menu">
                         <li>
                             <a  href="{{ route('cidades.index') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi bi-map"></i><span class="ms-1  d-sm-inline">Cadastro de Localidades</span></a>
+                                <i class="fs-4 bi bi-map"></i><span class="ms-1  d-sm-inline"> Localidades</span></a>
                         </li>
                 </ul>
                 <hr>
