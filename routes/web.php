@@ -24,13 +24,13 @@ Route::view('/login', 'login.login')->name('login');
 
 Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
 Route::middleware(['auth'])->group(function () {
-
+  //  Cidade Bairro
     Route::get('/datatable', [DataTableLocal::class, 'datatable'])->name('datatable');
-    // Cadastro Cidade Bairro
+
     Route::resource('/cidades', CidadeController::class, ['names' => 'cidades']);
     Route::post('/cadastrar', [CidadeController::class, 'cadastrar']);
-
     Route::get('/cadastro-cidades', [CidadeController::class, 'create'])->name('cidades.cadastro');
+    Route::delete('/cidades/{id}', [CidadeController::class, 'destroy'])->name('cidades.delete');
 
     Route::post('/cadastrar/{idCidade}', [BairroController::class, 'cadastrar'])->name('cadastrar.bairro');
 });

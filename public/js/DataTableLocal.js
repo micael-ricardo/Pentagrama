@@ -33,6 +33,21 @@ $(document).ready(function () {
             },
             className: 'text-center'
         },
+        {
+            data: 'id',
+            title: 'Ações',
+            width: "100px",
+            render: function (data, type, row) {
+                var cidade = row.nome;
+                var bairro = row.bairro_nome;
+                var btnDeletar = '<button type="button" data-bs-target="#ModalDeletar" data-bs-toggle="modal" data-id="' + data + '" data-nome="' + cidade + '"  data-bairro="' + bairro + '"class="btn btn-danger btn-sm excluir-local"><i class="bi bi-trash"></i></button>';
+
+                return btnDeletar;
+
+            },
+            className: 'text-center'
+        },
+
     ]
 
     $('#datatable').DataTable({
@@ -44,8 +59,8 @@ $(document).ready(function () {
             method: 'GET',
             // filtro
             data: function (d) {
-                d.data_inicio = $('#data_inicio').val(); 
-                d.data_fim = $('#data_fim').val(); 
+                d.data_inicio = $('#data_inicio').val();
+                d.data_fim = $('#data_fim').val();
                 d.estado = $('#estado').val();
                 d.nome = $('#nome').val();
                 d.bairro_nome = $('#bairro_nome').val();
@@ -81,5 +96,48 @@ $(document).ready(function () {
 // recarrega tabela com  valor do filtrado
 
 $('#data_inicio,#data_fim,#estado,#nome,#bairro_nome').on('change', function () {
-    $('#datatable').DataTable().ajax.reload(); 
+    $('#datatable').DataTable().ajax.reload();
+});
+
+// Deletar
+$(document).on("click", ".excluir-local", function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    var cidade = $(this).data('nome');
+    var bairro = $(this).data('bairro');
+    $('#nome-cidade').text(cidade);
+    $('#nome-bairro').text(bairro);
+    var formAction = $('#formExcluir').attr('action').replace(':id', id);
+    $('#formExcluir').attr('action', formAction);
+    $('#formExcluir input[name="id"]').val(id);
+    $('#ModalDeletar').modal('show');
+});
+$(document).on("submit", "#formExcluir", function (e) {
+    e.preventDefault();
+    var form = this;
+    function showError() {
+        toastr.error('Ocorreu um erro ao excluir a local.');
+    }
+    $.ajax({
+        url: form.action,
+        type: form.method,
+        data: $(form).serialize(),
+        success: function (response, status, xhr) {
+            if (xhr.status === 200) {
+                toastr.success('Local excluída com sucesso!');
+                $('#ModalDeletar').modal('hide');
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+            } else {
+                showError();
+            }
+        },
+        error: function (xhr) {
+            showError();
+        },
+        complete: function () {
+            $('#ModalDeletar').modal('hide');
+        }
+    });
 });

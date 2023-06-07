@@ -39,7 +39,9 @@ class CidadeController extends Controller
     }
     public function destroy(string $id)
     {
-        //
+        $cidade = cidade::findOrFail($id);
+        $cidade->delete();
+        return response()->json(['success' => true]);
     }
 
 
