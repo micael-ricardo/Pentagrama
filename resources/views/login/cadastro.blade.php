@@ -28,8 +28,8 @@
 
             <div class="col-md-12 mt-4">
                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar </button>
-                {{-- <a href="{{ route('candidatos.index') }}" class="btn btn-danger"><i class="fa fa-times"></i>
-                    Cancelar</a> --}}
+                <a href="{{ route('login') }}" class="btn btn-danger"><i class="fa fa-times"></i>
+                    Cancelar</a>
             </div>
     </form>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,7 @@
 
         @include('mensagens.mensagem')
 
-        <form  method="post">
+        <form action="{{ route('login.auth') }}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
@@ -31,11 +32,11 @@
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
                 <label class="form-check-label" for="remember">Lembrar-me</label>
-                {{-- <p><a href="#">Esqueceu a senha?</a></p> Se der tempo implementar --}}
                 <p>Não tem uma conta? <a href="{{ route('login.cadastro') }}">Registre-se aqui</a>.</p>
             </div>
             <button type="submit" class="btn btn-warning mb-3">Entrar</button>
         </form>
     </div>
 </body>
+
 </html>

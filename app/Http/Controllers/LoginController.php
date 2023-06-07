@@ -9,13 +9,13 @@ use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
-    public function auth(Request $request)
+    public function auth(LoginRequest $request)
     {
         $credenciais = $request->validated();
 
         if (Auth::attempt($credenciais, $request->remember)) {
             $request->session()->regenerate();
-            return redirect()->intended('/adm/dashboard');
+            return redirect()->route('cidades');
         } else {
             return back()->withErrors(['login.invalid' => 'Credenciais inválidas. Por favor, tente novamente.'])->withInput($request->only('email'));
         }
