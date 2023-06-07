@@ -45,12 +45,8 @@ $(document).ready(function () {
         var id = event.params.data.id;
         $.get('https://servicodados.ibge.gov.br/api/v1/localidades/municipios/' + id, function (data) {
             var estado = data['regiao-imediata']['regiao-intermediaria']['UF']['nome'];
-            var data_fundacao = data.data_de_fundacao;
-            var estado = data.microrregiao.mesorregiao.UF.nome;
             $('#nome_cidade').val(data.nome);
-            $('#data_fundacao').val(data_fundacao);
             $('#estado').val(estado);
-
             // Cadastrar bairros que tem na cidade selecionada
             $('.select2-bairros').select2({
                 placeholder: 'Selecione um bairro',
@@ -70,6 +66,7 @@ $(document).ready(function () {
                         };
                     },
                     processResults: function (data) {
+                        // console.log(data);
                         var results = [];
                         $.each(data, function (index, item) {
                             if (item.address.suburb) {
