@@ -21,8 +21,6 @@ class UsuarioRequest extends FormRequest
         return [
             'nome' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'telefone' => 'required|string|max:20',
-            'curriculo' => 'required|string',
             'password' => 'required|string|min:8',
         ];
     }
@@ -33,8 +31,6 @@ class UsuarioRequest extends FormRequest
             'email.required' => 'O campo email é obrigatório.',
             'email.email' => 'O campo email deve ser um endereço de email válido.',
             'email.unique' => 'O email já está em uso.',
-            'telefone.required' => 'O campo telefone é obrigatório.',
-            'curriculo.required' => 'O campo currículo é obrigatório.',
             'password.required' => 'O campo senha é obrigatório.',
             'password.min' => 'A senha deve ter no mínimo :min caracteres.',
         ];

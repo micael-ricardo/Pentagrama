@@ -8,7 +8,6 @@
 
     @include('mensagens.mensagem')
     <form method="POST" action="{{ route('usuarios.store') }}">
-        {{-- previne ataques CSRF --}}
         @csrf
 
         <div class="row mt-4">
