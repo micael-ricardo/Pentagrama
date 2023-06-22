@@ -55,13 +55,13 @@
             <h4 class="display-6">Cadastrar Cep</h4>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="cep">CEP</label>
+                        <label for="cep">Cep:</label>
                         <input type="text" name="cep" id="cep" class="form-control cep">
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="rua">Logradouro</label>
-                        <input type="text" name="rua" id="rua" class="form-control" disabled>
+                        <label for="rua">Logradouro:</label>
+                        <input type="text" name="rua" id="rua" class="form-control" readonly>
                     </div>
                 </div>     
         </div>
