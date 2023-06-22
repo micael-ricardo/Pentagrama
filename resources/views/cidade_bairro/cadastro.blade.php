@@ -39,6 +39,12 @@
                     <select class="form-control select2-bairros" name="nome_bairro" id="nome_bairro">
                     </select>
                 </div>
+
+                <div class="form-group col-md-4">
+                    <label for="cep">CEP:</label>
+                    <input type="text" class="form-control" name="cep" id="cep" required>
+                </div>
+                
             </div>
         </div>
 
