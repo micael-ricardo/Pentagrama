@@ -40,19 +40,37 @@
                     </select>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label for="cep">CEP:</label>
-                    <input type="text" class="form-control" name="cep" id="cep" required>
+                <div class="col-md-6 mt-3">
+                    <div class="form-group">
+                        <label for="cadastrarcep">Deseja cadastrar o Cep?</label>
+                        <input type="checkbox" value="1" onclick="return($('#CadastroCep').toggle('fade'))"
+                            name="cadastrarcep" id="cadastrarcep">
+                    </div>
                 </div>
-                
+
             </div>
+        </div>
+
+        <div id="CadastroCep" style="display: none;">
+            <h4 class="display-6">Cadastrar Cep</h4>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" id="cep" class="form-control cep">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="rua">Logradouro</label>
+                        <input type="text" name="rua" id="rua" class="form-control" disabled>
+                    </div>
+                </div>     
         </div>
 
         <div class="col-md-12 mt-5">
             <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Salvar </button>
-            <a   href="{{ route('cidades.index') }}"  class="btn btn-danger"><i class="bi bi-trash"></i>Cancelar</a>
+            <a href="{{ route('cidades.index') }}" class="btn btn-danger"><i class="bi bi-trash"></i>Cancelar</a>
         </div>
-   
+
         <script src="{{ asset('js/cidade_bairro.js') }}"></script>
     </form>
 @endsection

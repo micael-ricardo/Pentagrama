@@ -4,12 +4,25 @@ $(document).ready(function () {
     var $checkbox = $('#cadastrarbairro');
     $checkbox.click(function () {
         if ($checkbox.is(':checked')) {
-            $('#nome_bairro, #cidade_bairro').attr('required', true);
+            $('#nome_bairro').attr('required', true);
         } else {
-            $('#nome_bairro, #cidade_bairro').removeAttr('required');
+            $('#nome_bairro').removeAttr('required');
         }
     });
 });
+
+// Inserir required caso o campo esteja esposto
+$(document).ready(function () {
+    var $checkbox = $('#cadastrarcep');
+    $checkbox.click(function () {
+        if ($checkbox.is(':checked')) {
+            $('#cep, #rua').attr('required', true);
+        } else {
+            $('#cep, #rua').removeAttr('required');
+        }
+    });
+});
+
 
 // Inserir select2 + chamar API
 $(document).ready(function () {
