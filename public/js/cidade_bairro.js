@@ -115,7 +115,11 @@ $(document).ready(function () {
                             $('#rua').val(logradouro);
                         } else {
                             toastr.error('O CEP não corresponde ao bairro.');
+                            $('#rua').val('');
                         }
+                    } else {
+                        toastr.error('CEP não encontrado.');
+                        $('#rua').val('');
                     }
                 },
                 error: function () {
@@ -142,3 +146,4 @@ $('#nome_bairro').on('change', function () {
     $('#cep').val('');
     $('#rua').val('');
 });
+
