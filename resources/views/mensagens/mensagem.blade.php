@@ -1,6 +1,6 @@
-@if ($mensagem = Session::get('erro'))
+@if (Session::get('errors'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-x-circle"></i> {{ $mensagem }}
+        <i class="bi bi-x-circle"></i> {{ Session::get('errors') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif

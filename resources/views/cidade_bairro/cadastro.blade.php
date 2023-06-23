@@ -4,6 +4,7 @@
     <form action="/cadastrar" method="POST">
         @csrf
         <h4 class="display-6">Cadastrar Cidade</h4>
+        @include('mensagens.mensagem')
 
         <div class="row mt-4">
             <div class="form-group col-md-4">
