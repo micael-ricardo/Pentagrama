@@ -64,8 +64,8 @@ $(document).ready(function () {
             title: 'Ações',
             width: "100px",
             render: function (data, type, row) {
-                var cidade = row.nome;
-                var bairro = row.bairro_nome;
+                var cidade = row.cidade;
+                var bairro = row.bairro;
                 var btnDeletar = '<button type="button" data-bs-target="#ModalDeletar" data-bs-toggle="modal" data-id="' + data + '" data-nome="' + cidade + '"  data-bairro="' + bairro + '"class="btn btn-danger btn-sm excluir-local"><i class="bi bi-trash"></i></button>';
 
                 return btnDeletar;
