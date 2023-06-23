@@ -18,12 +18,10 @@ class CidadeController extends Controller
     public function create()
     {
         return view('cidade_bairro.cadastro');
-
     }
-
-    public function cadastrar(Request $request, BairroController $bairroController)
+    public function cadastrar(Request $request, BairroController $bairroController, CepController $cepController)
     {
-        DB::transaction(function () use ($request, $bairroController) {
+        DB::transaction(function () use ($request, $bairroController, $cepController) {
             $cidade = cidade::create([
                 'nome' => $request->nome_cidade,
                 'estado' => $request->estado,
@@ -31,17 +29,18 @@ class CidadeController extends Controller
             ]);
 
             if ($request->has('cadastrarbairro')) {
-                $bairroController->cadastrar($request, $cidade->id);
+                $bairroController->cadastrar($request, $cidade->id, $cepController);
             }
         });
 
         return redirect()->route('cidades.index')->with('success', 'Registro inserido com sucesso!');
     }
+
+
     public function destroy(string $id)
     {
         $cidade = cidade::findOrFail($id);
         $cidade->delete();
         return response()->json(['success' => true]);
     }
-
 }
