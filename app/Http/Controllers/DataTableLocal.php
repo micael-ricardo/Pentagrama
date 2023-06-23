@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Yajra\DataTables\Facades\DataTables;
 
 use Illuminate\Http\Request;
-use App\Models\CidadeBairroView;
+use App\Models\CidadeBairroCepView;
 
 
 class DataTableLocal extends Controller
@@ -19,7 +19,7 @@ class DataTableLocal extends Controller
     public function datatable(Request $request)
     {
 
-        $query = CidadeBairroView::query();
+        $query = CidadeBairroCepView::query();
 
         // Filtros
         if ($request->has('data_inicio') && $request->input('data_inicio') !== null) {
@@ -32,11 +32,17 @@ class DataTableLocal extends Controller
         if ($request->has('estado') && $request->input('estado') !== null) {
             $query->where('estado', 'LIKE', '%' . $request->input('estado') . '%');
         }
-        if ($request->has('nome') && $request->input('nome') !== null) {
-            $query->where('nome', 'LIKE', '%' . $request->input('nome') . '%');
+        if ($request->has('cidade') && $request->input('cidade') !== null) {
+            $query->where('cidade', 'LIKE', '%' . $request->input('cidade') . '%');
         }
-        if ($request->has('bairro_nome') && $request->input('bairro_nome') !== null) {
-            $query->where('bairro_nome', 'LIKE', '%' . $request->input('bairro_nome') . '%');
+        if ($request->has('bairro') && $request->input('bairro') !== null) {
+            $query->where('bairro', 'LIKE', '%' . $request->input('bairro') . '%');
+        }
+        if ($request->has('rua') && $request->input('rua') !== null) {
+            $query->where('rua', 'LIKE', '%' . $request->input('rua') . '%');
+        }
+        if ($request->has('cep') && $request->input('cep') !== null) {
+            $query->where('cep', 'LIKE', '%' . $request->input('cep') . '%');
         }
         return DataTables::of($query)->toJson();
     }

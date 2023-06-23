@@ -32,11 +32,19 @@
             </div>
             <div class="form-group col-sm-4">
                 <label>Cidade:</label>
-                <input type="text" class="form-control" name="nome" id="nome" />
+                <input type="text" class="form-control" name="cidade" id="cidade" />
             </div>
             <div class="form-group col-sm-4">
                 <label>Bairro:</label>
-                <input type="text" class="form-control" name="bairro_nome" id="bairro_nome" />
+                <input type="text" class="form-control" name="bairro" id="bairro" />
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Rua:</label>
+                <input type="text" class="form-control" name="rua" id="rua" />
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Cep:</label>
+                <input type="text" class="form-control" name="cep" id="cep" />
             </div>
         </div>
     </div>
@@ -48,6 +56,8 @@
                 <th>Estado</th>
                 <th>Cidade</th>
                 <th>Bairro</th>
+                <th>Rua</th>
+                <th>Cep</th>
                 <th>Data Fundação</th>
                 <th>Ações</th>
             </tr>

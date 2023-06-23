@@ -6,13 +6,39 @@ $(document).ready(function () {
             width: "250px",
         },
         {
-            data: 'nome',
+            data: 'cidade',
             title: 'Cidade',
             width: "250px",
         },
         {
-            data: 'bairro_nome',
+            data: 'bairro',
             title: 'Bairro',
+            width: "250px",
+            render: function (data, type, row) {
+                if (data) {
+                    return data;
+                } else {
+                    return '-';
+                }
+            },
+            className: 'text-center'
+        },
+        {
+            data: 'rua',
+            title: 'Rua',
+            width: "250px",
+            render: function (data, type, row) {
+                if (data) {
+                    return data;
+                } else {
+                    return '-';
+                }
+            },
+            className: 'text-center'
+        },
+        {
+            data: 'cep',
+            title: 'Cep',
             width: "250px",
             render: function (data, type, row) {
                 if (data) {
@@ -62,8 +88,10 @@ $(document).ready(function () {
                 d.data_inicio = $('#data_inicio').val();
                 d.data_fim = $('#data_fim').val();
                 d.estado = $('#estado').val();
-                d.nome = $('#nome').val();
-                d.bairro_nome = $('#bairro_nome').val();
+                d.cidade = $('#cidade').val();
+                d.bairro = $('#bairro').val();
+                d.rua = $('#rua').val();
+                d.cep = $('#cep').val();
             }
         },
         columns: columns,
@@ -95,7 +123,7 @@ $(document).ready(function () {
 
 // recarrega tabela com  valor do filtrado
 
-$('#data_inicio,#data_fim,#estado,#nome,#bairro_nome').on('change', function () {
+$('#data_inicio,#data_fim,#estado,#cidade,#bairro,#rua,#cep').on('change', function () {
     $('#datatable').DataTable().ajax.reload();
 });
 
