@@ -126,6 +126,12 @@ $(document).ready(function () {
     });
 });
 
+
+// Inserir mascara no cep
+$(document).ready(function() {
+    $('#cep').inputmask('99.999-999');
+  });
+
 // Limpar campos caso alterados depois de preenchidos
 $('#nome').on('change', function () {
     $('#nome_bairro').val('');

@@ -14,8 +14,10 @@ class CepController extends Controller
             return false;
         }
 
+        $RemoverMascara = preg_replace('/[^0-9]/', '', $request->cep);
+
         cep::create([
-            'cep' => $request->cep,
+            'cep' => $RemoverMascara,
             'rua' => $request->rua,
             'bairro_id' => $idBairro,
         ]);
