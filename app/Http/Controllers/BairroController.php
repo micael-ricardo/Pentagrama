@@ -15,14 +15,9 @@ class BairroController extends Controller
             'nome' => $request->nome_bairro,
             'cidade_id' => $idCidade,
         ]);
-    
+
         if ($request->has('cadastrarcep')) {
-            if (!$cepController->cadastrar($request, $bairro->id)) {
-                return false;
-            }
+            $cepController->cadastrar($request, $bairro->id);
         }
-    
-        return true;
     }
-    
 }
