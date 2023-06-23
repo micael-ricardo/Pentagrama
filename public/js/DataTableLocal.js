@@ -169,3 +169,8 @@ $(document).on("submit", "#formExcluir", function (e) {
         }
     });
 });
+
+// Inserir mascara no cep
+$(document).ready(function () {
+    $('#cep').inputmask('99.999-999');
+});

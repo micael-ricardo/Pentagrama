@@ -42,7 +42,8 @@ class DataTableLocal extends Controller
             $query->where('rua', 'LIKE', '%' . $request->input('rua') . '%');
         }
         if ($request->has('cep') && $request->input('cep') !== null) {
-            $query->where('cep', 'LIKE', '%' . $request->input('cep') . '%');
+            $RemoverMascara = preg_replace('/[^0-9]/', '', $request->input('cep'));
+            $query->where('cep', 'LIKE', '%' .  $RemoverMascara . '%');
         }
         return DataTables::of($query)->toJson();
     }
