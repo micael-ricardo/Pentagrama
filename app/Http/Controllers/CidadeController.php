@@ -25,8 +25,21 @@ class CidadeController extends Controller
     public function cadastrar(Request $request, BairroController $bairroController, CepController $cepController)
     {
         // Verifica se a rua já existe
-        if (cep::where('rua', $request->rua)->exists()) {
-            return redirect()->back()->withErrors('Existe um registro com esse logradouro.');
+
+        if ($request->has('cadastrarcep')) {
+
+            $messages = [
+                'rua.required' => 'Preencha o campo rua.'
+            ];
+
+            $request->validate([
+                'rua' => 'required'
+            ], $messages);
+
+
+            if (cep::where('rua', $request->rua)->exists()) {
+                return redirect()->back()->withErrors('Existe um registro com esse logradouro.');
+            }
         }
 
         try {
