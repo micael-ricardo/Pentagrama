@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ceps', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bairro_id');
-            $table->foreign('bairro_id')->references('id')->on('bairros');
+            $table->foreign('bairro_id')->references('id')->on('bairros')->onDelete('cascade');
             $table->string('cep', 8);
             $table->string('rua');
             $table->timestamps();

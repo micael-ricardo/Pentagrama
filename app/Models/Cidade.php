@@ -19,4 +19,11 @@ class Cidade extends Model
     {
         return $this->hasMany(Bairro::class);
     }
+
+    protected static function booted()
+    {
+        static::deleting(function ($cidade) {
+            $cidade->bairros()->delete();
+        });
+    }
 }

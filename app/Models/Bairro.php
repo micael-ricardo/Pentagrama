@@ -19,4 +19,8 @@ class Bairro extends Model
     {
         return $this->belongsTo(Cidade::class);
     }
+       public function ceps()
+    {
+        return $this->hasMany(Cep::class);
+    }
 }
