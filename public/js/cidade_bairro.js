@@ -76,7 +76,6 @@ $(document).ready(function () {
                         };
                     },
                     processResults: function (data) {
-                        // console.log(data);
                         var results = [];
                         $.each(data, function (index, item) {
                             if (item.address.suburb) {
