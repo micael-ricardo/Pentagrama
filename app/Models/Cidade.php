@@ -23,7 +23,9 @@ class Cidade extends Model
     protected static function booted()
     {
         static::deleting(function ($cidade) {
-            $cidade->bairros()->delete();
+            $cidade->bairros->each(function ($bairro) {
+                $bairro->delete();
+            });
         });
     }
 }

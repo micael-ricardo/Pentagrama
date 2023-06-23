@@ -19,8 +19,17 @@ class Bairro extends Model
     {
         return $this->belongsTo(Cidade::class);
     }
-       public function ceps()
+    public function ceps()
     {
         return $this->hasMany(Cep::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($bairro) {
+            $bairro->ceps()->delete();
+        });
     }
 }
